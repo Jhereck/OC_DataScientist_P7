@@ -23,4 +23,4 @@ jobs:
                   server: https://admin.app.certifyed.io
                   app: 'api-oc'
                   token: '${{ secrets.APP_TOKEN }}'
-                  image: 'ghcr.io/Jhereck/OC_DataScientist_P7:latest'
+                  image: 'ghcr.io/jhereck/oc_datascientist_p7:latest'
