@@ -7,8 +7,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-RUN apt-get update
-
 # Install & use pipenv
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip
