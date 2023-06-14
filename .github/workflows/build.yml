@@ -20,7 +20,7 @@ jobs:
             - name: Deploy on CapRover
               uses: caprover/deploy-from-github@v1.1.2
               with:
-                  server: https://certifyed.io
+                  server: https://admin.app.certifyed.io
                   app: 'api-oc'
                   token: '${{ secrets.APP_TOKEN }}'
                   image: 'ghcr.io/Jhereck/OC_DataScientist_P7:latest'
