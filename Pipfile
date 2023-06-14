@@ -30,7 +30,6 @@ shap = "*"
 evidently = "*"
 fastapi = "*"
 uvicorn = "*"
-pytest = "*"
 
 [dev-packages]
 
