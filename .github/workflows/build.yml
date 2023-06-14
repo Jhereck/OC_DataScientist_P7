@@ -12,11 +12,17 @@ jobs:
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v2
+
             - name: Publish Docker Image
               uses: matootie/github-docker@v3.1.0
               with:
                   accessToken: ${{ github.token }}
                   containerRegistry: true
+
+            - name: Run test suite
+              run: |
+                  pipenv run pytest
+
             - name: Deploy on CapRover
               uses: caprover/deploy-from-github@v1.1.2
               with:
