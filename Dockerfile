@@ -12,7 +12,7 @@ RUN apt-get update
 # Install & use pipenv
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip
-RUN pip install pipenv && pipenv install --dev --system --deploy
+RUN pip install pipenv && pipenv install --ignore-pipfile --dev --system --deploy
 
 WORKDIR /app
 COPY . /app
