@@ -6,9 +6,8 @@ import pickle as pk
 app = FastAPI()
 
 try:
-    datas = pd.read_csv("./datas/application_test.csv")
-    datas.replace([np.inf, -np.inf], np.nan, inplace=True)
-    datas.fillna(-1, inplace=True)
+    datas = pd.read_csv("./datas/test_feature_engineering.csv")
+    datas.drop("Unnamed: 0", axis=1, inplace=True)
 except:
     raise HTTPException(status_code=404, detail="Données non trouvées")
 
@@ -20,13 +19,15 @@ except:
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {
+        "message": "Bienvenue sur l'API de prédiction de proba de remboursement de crédit"
+    }
 
 
 @app.post("/predict")
-async def predict(num_client: int):
+async def predict(num_client: int in range(0, len(datas))):
     predict = model.predict_proba(datas.iloc[num_client])
-    if predict >= 0.4669:
+    if predict[:, 1] >= 0.4669:
         return {"prediction": "Potentiel mauvais payeur"}
 
     return {"prediction": "Potentiel bon payeur"}
