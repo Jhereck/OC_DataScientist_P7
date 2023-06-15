@@ -25,7 +25,7 @@ async def root():
 
 
 @app.post("/predict")
-async def predict(num_client: int in range(0, len(datas))):
+async def predict(num_client: int):
     predict = model.predict_proba(datas.iloc[num_client])
     if predict[:, 1] >= 0.4669:
         return {"prediction": "Potentiel mauvais payeur"}
