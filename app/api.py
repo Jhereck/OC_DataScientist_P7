@@ -28,6 +28,8 @@ async def root():
 async def predict(num_client: int):
     predict = model.predict_proba([datas.iloc[num_client]])
     if predict[:, 1] >= 0.4669:
-        return {"prediction": "Potentiel mauvais payeur"}
+        return {
+            "prediction": f"Potentiel mauvais payeur ({round(predict[0,1], 3)*100} %)"
+        }
 
-    return {"prediction": "Potentiel bon payeur"}
+    return {"prediction": f"Potentiel bon payeur ({round(predict[0,0], 3)*100} %)"}
