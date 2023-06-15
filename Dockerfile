@@ -17,7 +17,7 @@ RUN pip install pipenv && pipenv install --ignore-pipfile --dev --system --deplo
 WORKDIR /app
 COPY . /app
 
-RUN pipenv run pytest
+RUN pytest
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
