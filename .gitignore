@@ -1,3 +1,9 @@
 mlruns
 input
 .vscode
+*.pdf
+*.html
+*.png
+*.gslides
+*.zip
+*.gdoc
