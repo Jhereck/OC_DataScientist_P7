@@ -29,7 +29,9 @@ async def predict(num_client: int):
     predict = model.predict_proba([datas.iloc[num_client]])
     if predict[:, 1] >= 0.4669:
         return {
-            "prediction": f"Potentiel mauvais payeur ({round(predict[0,1], 3)*100} %)"
+            "prediction": f"Le client {num_client} est un potentiel mauvais payeur ({round(predict[0,1], 3)*100} %)"
         }
 
-    return {"prediction": f"Potentiel bon payeur ({round(predict[0,0], 3)*100} %)"}
+    return {
+        "prediction": f"Le client {num_client} est un potentiel bon payeur ({round(predict[0,0], 3)*100} %)"
+    }
